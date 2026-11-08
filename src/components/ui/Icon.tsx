@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { asset } from "@/lib/asset";
 
 /**
  * Icons exported from the ALGA trip Figma file (public/icons). Colours are baked
@@ -31,7 +32,7 @@ export function Icon({ name, size, className = "" }: { name: IconName; size?: nu
   const s = size ? size / Math.max(w, h) : 1;
   return (
     <Image
-      src={`/icons/${name}.svg`}
+      src={asset(`/icons/${name}.svg`)}
       alt=""
       aria-hidden
       width={Math.round(w * s)}

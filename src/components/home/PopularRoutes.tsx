@@ -5,6 +5,7 @@ import { Button, ButtonLink } from "@/components/ui/Button";
 import { Carousel } from "@/components/ui/Carousel";
 import { Container, SectionTitle } from "@/components/ui/Section";
 import { routes, type Route } from "@/lib/mock-data";
+import { asset } from "@/lib/asset";
 
 export function BestBadge({ small = false }: { small?: boolean }) {
   return (
@@ -49,7 +50,7 @@ export function PhotoCard({
 }) {
   return (
     <article className="relative h-[480px] w-[430px] shrink-0 snap-start overflow-hidden rounded-card bg-white shadow-card">
-      <Image src={image} alt={alt} fill sizes="430px" className="object-cover" />
+      <Image src={asset(image)} alt={alt} fill sizes="430px" className="object-cover" />
       {/* backdrop blur fading in towards the bottom */}
       <div
         aria-hidden
@@ -84,7 +85,7 @@ function RouteTile({ route }: { route: Route }) {
   return (
     <Link href={`#route-${route.id}`} className="flex flex-col gap-3">
       <div className="relative aspect-square overflow-hidden rounded-input bg-white">
-        <Image src={route.image} alt={route.title} fill sizes="50vw" className="object-cover" />
+        <Image src={asset(route.image)} alt={route.title} fill sizes="50vw" className="object-cover" />
         {route.best && (
           <span className="absolute top-2 right-2">
             <BestBadge small />

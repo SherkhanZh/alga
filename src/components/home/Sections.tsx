@@ -3,6 +3,7 @@ import { Carousel } from "@/components/ui/Carousel";
 import { Container, SectionTitle } from "@/components/ui/Section";
 import { cars, extras, partners, steps } from "@/lib/mock-data";
 import { PhotoCard, StatRow } from "./PopularRoutes";
+import { asset } from "@/lib/asset";
 
 /* ── Как заказать у нас поездку? ───────────────────────────── */
 export function HowItWorks() {
@@ -20,7 +21,7 @@ export function HowItWorks() {
               key={s.title}
               className="flex h-[250px] flex-1 flex-col items-center justify-center gap-6 rounded-card bg-white p-6 text-center"
             >
-              <Image src={s.icon} alt="" width={48} height={48} unoptimized />
+              <Image src={asset(s.icon)} alt="" width={48} height={48} unoptimized />
               <div className="flex flex-col items-center gap-3">
                 <h3 className="text-2xl font-semibold text-heading">{s.title}</h3>
                 <p className="max-w-[256px] text-base text-body">{s.text}</p>
@@ -33,7 +34,7 @@ export function HowItWorks() {
         <ol className="flex flex-col gap-6 pb-6 lg:hidden">
           {steps.map((s) => (
             <li key={s.title} className="flex items-start gap-6">
-              <Image src={s.iconSm} alt="" width={32} height={32} unoptimized className="shrink-0" />
+              <Image src={asset(s.iconSm)} alt="" width={32} height={32} unoptimized className="shrink-0" />
               <div className="flex flex-col gap-3">
                 <h3 className="text-base font-semibold text-heading">{s.title}</h3>
                 <p className="text-sm text-body">{s.text}</p>
@@ -88,7 +89,7 @@ export function ExtraOptions() {
                 className="flex w-[calc((100%-24px)/2)] shrink-0 snap-start flex-col gap-6 rounded-card bg-white p-6 drop-shadow-[0px_4px_18px_rgba(0,0,0,0.04)]"
               >
                 <div className="relative h-[289px] overflow-hidden rounded-3xl bg-gradient-to-br from-[#c9f1f4] to-[#e4f0c9]">
-                  <Image src={x.image} alt="" fill sizes="600px" className="object-cover" />
+                  <Image src={asset(x.image)} alt="" fill sizes="600px" className="object-cover" />
                 </div>
                 <div className="flex flex-col gap-1">
                   <h3 className="text-[32px] font-semibold text-ink">{x.title}</h3>
@@ -104,7 +105,7 @@ export function ExtraOptions() {
           {extras.map((x) => (
             <article key={x.id} className="flex min-h-[162px] items-center gap-3 rounded-input bg-white p-3 py-4 shadow-card-sm">
               <div className="relative h-[130px] w-20 shrink-0 overflow-hidden rounded-input bg-gradient-to-br from-[#c9f1f4] to-[#e4f0c9]">
-                <Image src={x.imageMobile} alt="" fill sizes="80px" className="object-cover" />
+                <Image src={asset(x.imageMobile)} alt="" fill sizes="80px" className="object-cover" />
               </div>
               <div className="flex flex-col gap-2">
                 <h3 className="text-base font-semibold text-heading">{x.title}</h3>
@@ -128,7 +129,7 @@ export function Partners() {
           {partners.map((p) =>
             p.logo ? (
               <li key={p.id} className="relative h-12 lg:h-[81px] lg:w-[251px]">
-                <Image src={p.logo} alt={p.name} fill sizes="251px" className="object-contain object-left" />
+                <Image src={asset(p.logo)} alt={p.name} fill sizes="251px" className="object-contain object-left" />
               </li>
             ) : (
               <li key={p.id} aria-label="Логотип партнёра" className="h-12 bg-[#c4c4c4] lg:h-20 lg:w-[243px]" />

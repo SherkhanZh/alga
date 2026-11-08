@@ -10,6 +10,14 @@ npm run dev        # http://localhost:3000
 npm run build && npm start
 ```
 
+## Deploy
+
+- **Preview — GitHub Pages:** push to `main`; `.github/workflows/pages.yml` builds a static export and publishes it to
+  `https://<user>.github.io/<repo>/`. One-time: repo **Settings → Pages → Source: GitHub Actions**.
+  Local check: `npm run build:pages` → `out/`.
+- **Production — own server:** `npm run build && npm start` (Node), or reuse `npm run build:pages` with
+  `NEXT_PUBLIC_BASE_PATH=` (empty) for a plain static host.
+
 ## Status
 
 - **Done:** home page (`Главная`), desktop 1440 + mobile 360, all real assets from Figma.

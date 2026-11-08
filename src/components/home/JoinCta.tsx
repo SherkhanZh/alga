@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { joinCopy } from "@/lib/mock-data";
+import { asset } from "@/lib/asset";
 
 type Who = keyof typeof joinCopy;
 
@@ -44,9 +45,9 @@ export function JoinCta() {
         </div>
 
         <div className="relative hidden w-[796px] shrink-0 self-stretch overflow-hidden lg:block">
-          <Image src="/images/driver-bg.webp" alt="" fill sizes="796px" className="object-cover" />
+          <Image src={asset("/images/driver-bg.webp")} alt="" fill sizes="796px" className="object-cover" />
           <div className="absolute top-[-5px] left-[-63px] h-[587px] w-[921px]">
-            <Image src="/images/driver-wheel.webp" alt="" fill sizes="921px" className="object-cover" />
+            <Image src={asset("/images/driver-wheel.webp")} alt="" fill sizes="921px" className="object-cover" />
           </div>
         </div>
       </div>

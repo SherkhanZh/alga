@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { SearchForm } from "./SearchForm";
+import { asset } from "@/lib/asset";
 
 export function Hero() {
   return (
     <section className="relative isolate overflow-hidden">
       {/* Desktop background: photo + rgba(12,15,1,0.5) overlay */}
       <div aria-hidden className="absolute inset-0 -z-10 hidden lg:block">
-        <Image src="/images/hero.webp" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src={asset("/images/hero.webp")} alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-[rgba(12,15,1,0.5)]" />
       </div>
       {/* Mobile background: photo with white fade from the top */}
       <div aria-hidden className="absolute inset-0 -z-10 lg:hidden">
-        <Image src="/images/hero-mobile.webp" alt="" fill priority sizes="100vw" className="object-cover" />
+        <Image src={asset("/images/hero-mobile.webp")} alt="" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-x-0 top-0 h-[806px] bg-gradient-to-b from-white from-[12.8%] to-white/0" />
       </div>
 
