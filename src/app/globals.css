@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * ALGA trip design tokens — taken from the Figma file (variables + styles).
+ * Font: the design uses Proxima Nova (commercial). If you have a licence, put the
+ * .woff2 files in /public/fonts and uncomment the @font-face block below;
+ * otherwise Manrope (free, Cyrillic) is used as the closest fallback.
+ */
+
+/*
+@font-face { font-family: "Proxima Nova"; src: url("/fonts/ProximaNova-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Proxima Nova"; src: url("/fonts/ProximaNova-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Proxima Nova"; src: url("/fonts/ProximaNova-Semibold.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Proxima Nova"; src: url("/fonts/ProximaNova-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+*/
+
+@theme {
+  /* Brand */
+  --color-green-100: #79a10a; /* Green/100 — primary CTA */
+  --color-green-120: #6a8d08; /* hover (derived) */
+  --color-green-900: #1e3700; /* Green/900 — footer */
+  --color-blue-900: #1d4f58; /* Blue/900 — driver CTA */
+
+  /* Neutrals */
+  --color-gray-25: #fdfdfd;
+  --color-gray-100: #f3f4f6;
+  --color-gray-400: #d5d7da;
+  --color-placeholder: #d7d7d7; /* logo placeholder */
+  --color-surface: #f9fafb; /* Base/Background */
+  --color-fade: #f7f7f7; /* carousel edge fade */
+
+  /* Text */
+  --color-ink: #2a2a2a; /* text/primary */
+  --color-ink-2: #717680; /* text/secondary */
+  --color-ink-3: #414651; /* Text/Tertiary */
+  --color-ink-muted: #7b7a8c; /* Text/Secondary-3 */
+  --color-heading: #101828;
+  --color-body: #4a5565;
+
+  /* Radii */
+  --radius-card: 32px;
+  --radius-input: 16px;
+
+  /* Shadows */
+  --shadow-input: 0px 1.5px 4px -1px rgba(10, 9, 11, 0.07); /* Shadow Soft/2X Small */
+  --shadow-card: 0px 4px 36px 0px rgba(0, 0, 0, 0.04);
+  --shadow-card-sm: 0px 0px 8.3px 4px rgba(0, 0, 0, 0.04);
+
+  /* Fonts */
+  --font-sans: "Proxima Nova", "Manrope", system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+
+  /* Layout */
+  --breakpoint-lg: 1024px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hide scrollbars on horizontal carousels */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
